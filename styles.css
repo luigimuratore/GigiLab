@@ -162,6 +162,26 @@ textarea { resize: vertical; }
 .checkbox input { width: auto; margin-top: 5px; }
 .form-status { margin: 0; color: var(--accent-dark); font-weight: 800; }
 
+.file-list { margin-top: 8px; font-weight: 600; color: var(--muted); }
+.file-list-items { list-style: none; padding: 0; margin: 8px 0 0 0; display: flex; flex-direction: column; gap: 8px; }
+.file-item { display: flex; align-items: center; gap: 12px; background: #faf8f6; border: 1px solid var(--line); padding: 8px 10px; border-radius: 12px; }
+.file-thumb { border-radius: 8px; object-fit: cover; }
+.file-meta { flex: 1; display: flex; flex-direction: column; }
+.file-name { font-weight: 700; color: var(--ink); font-size: 14px; }
+.file-remove { background: transparent; border: 0; color: var(--accent-dark); font-weight: 800; cursor: pointer; padding: 6px 8px; border-radius: 8px; }
+.file-remove:hover { background: rgba(255,107,43,0.08); }
+
+/* Custom file picker */
+.visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+/* For file inputs we want to fully hide the native control to avoid duplicate UI */
+input[type="file"].visually-hidden { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+/* Transparent overlay input to sit on top of custom picker */
+.file-picker { position: relative; }
+input[type="file"].file-input-overlay { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 5; }
+.file-picker { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: #fbfbfb; }
+.file-picker .choose-count { font-weight: 800; color: var(--muted); }
+.btn-ghost { padding: 10px 14px; }
+
 .footer { padding: 34px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--muted); }
 .footer strong { color: var(--ink); }
 .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }

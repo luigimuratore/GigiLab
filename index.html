@@ -187,7 +187,7 @@
           </div>
         </div>
 
-        <form class="request-form" id="quoteForm">
+        <form class="request-form" id="quoteForm" enctype="multipart/form-data">
           <label>
             Nome
             <input name="name" type="text" placeholder="Mario Rossi" required />
@@ -212,14 +212,25 @@
             <textarea name="description" rows="5" placeholder="Descrivi oggetto, dimensioni, materiale, uso, quantità, urgenza..." required></textarea>
           </label>
           <label>
-            Link a file/foto, se già disponibili
+            Allega file (puoi selezionare più file: STL, immagini, PDF, ZIP)
+            <div class="file-picker">
+              <button type="button" id="chooseFilesBtn" class="btn btn-ghost">Scegli file</button>
+              <span id="chooseFilesCount" class="choose-count">Nessun file</span>
+            </div>
+          </label>
+          <div id="fileList" class="file-list" aria-live="polite">
+            <p id="fileSummary">Nessun file selezionato.</p>
+            <ul id="fileListItems" class="file-list-items" aria-hidden="true"></ul>
+          </div>
+          <label>
+            Link a file/foto, se di grandi dimensioni
             <input name="files" type="url" placeholder="Link Drive, WeTransfer, Dropbox..." />
           </label>
           <label class="checkbox">
             <input type="checkbox" required />
             <span>Confermo che la richiesta sarà valutata manualmente e che non sto effettuando un acquisto automatico.</span>
           </label>
-          <button class="btn" type="submit">Genera anteprima richiesta</button>
+          <button class="btn" type="submit">Invia e richiedi preventivo</button>
           <p class="form-status" id="formStatus" role="status"></p>
         </form>
       </div>
