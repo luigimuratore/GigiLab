@@ -1,30 +1,4 @@
-# Robottino Lab — sito statico
+# Gigi Lab
 
-Bozza di sito portfolio per servizi occasionali di stampa 3D, CAD, incisione e taglio laser.
+Portfolio per servizi occasionali di stampa 3D, CAD, incisione e taglio laser.
 
-## Come testarlo in localhost
-
-Metodo semplice:
-
-```bash
-cd RobotLab
-python3 -m http.server 8000
-```
-
-Poi apri:
-
-```text
-http://localhost:8000
-```
-
-## Cosa modificare subito
-
-- In `index.html`, cambia `Robottino Lab` con il nome che vuoi.
-- Cambia `ciao@example.com` con la tua email.
-- Sostituisci i placeholder portfolio con immagini vere.
-- Aggiungi Privacy/Termini se lo pubblichi online.
-
-## Nota
-
-Il form locale non invia dati a un server. Genera solo una mail precompilata.
-Per usarlo online puoi collegarlo a Formspree, Netlify Forms, Google Forms o un backend tuo.
