@@ -246,3 +246,45 @@ input[type="file"].file-input-overlay { position: absolute; inset: 0; width: 100
   .file-name { font-size: 13px; }
   .lead { font-size: 16px; }
 }
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  background: rgba(20,20,20,0.95);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  font-weight: 700;
+  max-width: 320px;
+  transform: translateY(-8px);
+  opacity: 0;
+  animation: toast-in 260ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+.toast.hide {
+  animation: toast-out 220ms ease forwards;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(-8px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes toast-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(-6px) scale(.98); }
+}
+
+/* Responsive: smaller toast on very small screens */
+@media (max-width: 420px) {
+  .toast { max-width: 260px; font-size: 14px; }
+  .toast-container { left: 12px; right: 12px; top: 12px; }
+}

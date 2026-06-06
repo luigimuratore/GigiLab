@@ -33,8 +33,9 @@ form?.addEventListener('submit', async (event) => {
     });
 
     if (res.ok) {
-      status.innerHTML = 'Messaggio inviato. Ti risponderò al più presto.';
+      status.innerHTML = 'Messaggio inviato.';
       form.reset();
+      showToast('Messaggio inviato. Ti risponderò al più presto.');
     } else {
       const text = await res.text();
       console.error('Form submit error', res.status, text);
@@ -45,5 +46,27 @@ form?.addEventListener('submit', async (event) => {
     status.innerHTML = 'Errore di rete. Riprovare più tardi.';
   }
 });
+
+// Toast helper
+function showToast(message, timeout = 5000) {
+  let container = document.querySelector('.toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  container.appendChild(toast);
+
+  // Auto hide
+  setTimeout(() => {
+    toast.classList.add('hide');
+    // remove after animation
+    setTimeout(() => toast.remove(), 300);
+  }, timeout);
+}
 
 
