@@ -45,8 +45,8 @@ a { color: inherit; text-decoration: none; }
   border-radius: 12px; background: var(--ink); color: white;
 }
 .site-logo {
-  width: 80px;
-  height: 80px;
+  max-width: 80px;
+  height: auto;
   object-fit: contain;
   border-radius: 14px;
   display: block;
@@ -208,7 +208,8 @@ input[type="file"].file-input-overlay { position: absolute; inset: 0; width: 100
 @media (max-width: 620px) {
   .container { width: min(100% - 22px, 1120px); }
   .three, .portfolio-grid, .steps { grid-template-columns: 1fr; }
-  .hero { padding: 48px 0; }
+  /* Reduce hero vertical footprint on small screens */
+  .hero { padding: 28px 0; gap: 20px; }
   .section { padding: 62px 0; }
   .machine-card { min-width: 170px; padding: 16px; }
   .card-1 { left: 18px; top: 42px; }
@@ -219,8 +220,10 @@ input[type="file"].file-input-overlay { position: absolute; inset: 0; width: 100
   .request-form { padding: 18px; gap: 12px; }
   input, select, textarea { padding: 14px 12px; font-size: 16px; }
   .btn { width: 100%; padding: 14px; }
-  .site-logo { width: 64px; height: 64px; }
+  .site-logo { max-width: 64px; height: auto; }
   .request-layout { grid-template-columns: 1fr; gap: 18px; }
+  /* Hide decorative hero card on small devices to shorten page */
+  .hero-card { display: none; }
   /* File picker stacked and full-width */
   .file-picker { flex-direction: row; gap: 12px; align-items: center; width: 100%; }
   .file-picker .btn-ghost { flex: 0 0 auto; }
