@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gigi Lab — Prototipi, stampa 3D e laser</title>
+  <title>Gigi Lab</title>
   <meta name="description" content="Portfolio e richieste preventivo per realizzazioni occasionali: stampa 3D, progettazione CAD, incisione e taglio laser." />
+  <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <nav class="nav container">
       <a class="logo" href="#top" aria-label="Gigi Lab home">
-        <span class="logo-mark">G</span>
+        <img src="logo.png" alt="Gigi Lab logo" class="site-logo" />
         <span>Gigi Lab</span>
       </a>
       <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">☰</button>
@@ -211,17 +212,7 @@
             Descrizione
             <textarea name="description" rows="5" placeholder="Descrivi oggetto, dimensioni, materiale, uso, quantità, urgenza..." required></textarea>
           </label>
-          <label>
-            Allega file (puoi selezionare più file: STL, immagini, PDF, ZIP)
-            <div class="file-picker">
-              <button type="button" id="chooseFilesBtn" class="btn btn-ghost">Scegli file</button>
-              <span id="chooseFilesCount" class="choose-count">Nessun file</span>
-            </div>
-          </label>
-          <div id="fileList" class="file-list" aria-live="polite">
-            <p id="fileSummary">Nessun file selezionato.</p>
-            <ul id="fileListItems" class="file-list-items" aria-hidden="true"></ul>
-          </div>
+          <!-- File upload removed: use the cloud link field below to provide files -->
           <label>
             Link a file/foto, se di grandi dimensioni
             <input name="files" type="url" placeholder="Link Drive, WeTransfer, Dropbox..." />

@@ -44,6 +44,13 @@ a { color: inherit; text-decoration: none; }
   width: 36px; height: 36px; display: grid; place-items: center;
   border-radius: 12px; background: var(--ink); color: white;
 }
+.site-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 14px;
+  display: block;
+}
 .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-weight: 600; }
 .nav-links a:hover { color: var(--ink); }
 .nav-toggle { display: none; border: 0; background: transparent; font-size: 28px; }
@@ -212,6 +219,7 @@ input[type="file"].file-input-overlay { position: absolute; inset: 0; width: 100
   .request-form { padding: 18px; gap: 12px; }
   input, select, textarea { padding: 14px 12px; font-size: 16px; }
   .btn { width: 100%; padding: 14px; }
+  .site-logo { width: 64px; height: 64px; }
   .request-layout { grid-template-columns: 1fr; gap: 18px; }
   /* File picker stacked and full-width */
   .file-picker { flex-direction: row; gap: 12px; align-items: center; width: 100%; }
