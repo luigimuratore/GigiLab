@@ -13,19 +13,37 @@ document.querySelectorAll('.nav-links a').forEach((link) => {
 const form = document.querySelector('#quoteForm');
 const status = document.querySelector('#formStatus');
 
-form?.addEventListener('submit', (event) => {
+form?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  status.textContent = 'Preparando anteprima...';
+  status.textContent = 'Invio in corso...';
 
+  // populate subject hidden input
   const data = Object.fromEntries(new FormData(form).entries());
-  const subject = encodeURIComponent(`Richiesta preventivo — ${data.service || ''}`);
-  const body = encodeURIComponent(
-    `Nome: ${data.name || ''}\nEmail: ${data.email || ''}\nServizio: ${data.service || ''}\n\nDescrizione:\n${data.description || ''}\n\nLink file/foto:\n${data.files || 'Nessuno'}`
-  );
+  const subjectInput = document.querySelector('#_subject');
+  if (subjectInput) {
+    subjectInput.value = `Richiesta preventivo — ${data.service || ''}`;
+  }
 
-  const mailtoUrl = `mailto:gigiomuratore@gmail.com?subject=${subject}&body=${body}`;
+  // Send via fetch to the form action (FormSubmit)
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    });
 
-  status.innerHTML = `Anteprima pronta. <a href="${mailtoUrl}">Apri email precompilata</a>`;
+    if (res.ok) {
+      status.innerHTML = 'Messaggio inviato. Ti risponderò al più presto.';
+      form.reset();
+    } else {
+      const text = await res.text();
+      console.error('Form submit error', res.status, text);
+      status.innerHTML = 'Errore nell\'invio. Riprovare o usare il link di backup.';
+    }
+  } catch (err) {
+    console.error(err);
+    status.innerHTML = 'Errore di rete. Riprovare più tardi.';
+  }
 });
 
 

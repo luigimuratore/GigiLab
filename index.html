@@ -188,7 +188,11 @@
           </div>
         </div>
 
-        <form class="request-form" id="quoteForm" enctype="multipart/form-data">
+        <form class="request-form" id="quoteForm" enctype="multipart/form-data" method="POST" action="https://formsubmit.co/gigiomuratore@gmail.com">
+          <!-- FormSubmit hidden fields -->
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" id="_subject" value="Richiesta preventivo" />
           <label>
             Nome
             <input name="name" type="text" placeholder="Mario Rossi" required />
