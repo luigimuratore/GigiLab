@@ -208,4 +208,30 @@ input[type="file"].file-input-overlay { position: absolute; inset: 0; width: 100
   .card-2 { right: 18px; top: 170px; }
   .card-3 { left: 34px; bottom: 34px; }
   .footer { flex-direction: column; align-items: flex-start; }
+  /* Mobile form and inputs */
+  .request-form { padding: 18px; gap: 12px; }
+  input, select, textarea { padding: 14px 12px; font-size: 16px; }
+  .btn { width: 100%; padding: 14px; }
+  .request-layout { grid-template-columns: 1fr; gap: 18px; }
+  /* File picker stacked and full-width */
+  .file-picker { flex-direction: row; gap: 12px; align-items: center; width: 100%; }
+  .file-picker .btn-ghost { flex: 0 0 auto; }
+  .choose-count { font-size: 16px; }
+  /* File list item adjustments */
+  .file-item { gap: 10px; padding: 10px; }
+  .file-thumb { width: 40px; height: 40px; }
+  .file-name { font-size: 14px; }
+  .file-remove { padding: 8px 10px; }
+  /* Make the summary more visible */
+  #fileSummary { color: var(--muted); font-size: 15px; margin-top: 8px; }
+}
+
+@media (max-width: 420px) {
+  .file-picker { flex-direction: column; align-items: stretch; width: 100%; }
+  .file-picker .btn-ghost { width: 100%; }
+  .choose-count { display: block; margin-top: 8px; }
+  .file-list-items { gap: 10px; }
+  .file-meta { flex-direction: column; }
+  .file-name { font-size: 13px; }
+  .lead { font-size: 16px; }
 }
